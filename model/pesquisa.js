@@ -6,7 +6,7 @@ $(function(){
             var dados = {
                 palavra : buscar
             }
-            $.post('proc_busca.php', dados, function(retorna){
+            $.post('model/proc_busca.php', dados, function(retorna){
                 $(".resultado").html(retorna);
             });
         }

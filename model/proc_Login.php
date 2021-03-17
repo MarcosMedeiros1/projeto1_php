@@ -27,7 +27,7 @@ if (isset($_POST['login'])){
         header("location: ../view/homeInstituto.php");
     }
     else {
-        $_SESSION['msg'] = "E-mail ou senha incorretos";
-        header("Location: login.php");
+        $_SESSION['msg'] = "E-mail ou senha incorretos<br><br>";
+        header("Location: ../view/login.php");
     }
 }

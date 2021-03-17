@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../model/conexao.php");
+require_once("model/conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ require_once("../model/conexao.php");
 
     <ul class="resultado"></ul>
 
-    <script type="text/javascript" src="pesquisa.js"></script>
+    <script type="text/javascript" src="model/pesquisa.js"></script>
 
 </body>
 </html>

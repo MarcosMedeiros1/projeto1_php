@@ -13,6 +13,11 @@ if (!isset($_SESSION['email']) || $_SESSION['tipo']!="1") {
 <a href="../model/logout.php">Fazer Logout</a><br>
 
 <?php
+    if(isset($_SESSION['msg'])){
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+    }
+
     $consulta = "SELECT * FROM requisicoes";
     $resultado = mysqli_query($conn, $consulta);
 

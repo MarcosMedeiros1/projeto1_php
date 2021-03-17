@@ -11,7 +11,7 @@ if(($resultado) AND ($resultado->num_rows != 0)){
         echo "<br><br><b> Nome: </b>" . $linha['nome'] . "<br>";
         echo "<b>Descrição: </b>" . $linha['descricao'] . "<br><br>";
 
-        echo "<a href='sobre.php?cnpj=" . $linha['cnpj'] . "'>Ver mais informações sobre esta empresa</a><br><hr>";
+        echo "<a href='view/sobre.php?cnpj=" . $linha['cnpj'] . "'>Ver mais informações sobre esta empresa</a><br><hr>";
     }
 }else{
     echo "Nenhum registro encontrado";

@@ -3,8 +3,7 @@ require_once("conexao.php");
 
 $cnpj = $_GET['cnpj'];
 
-if(!empty($cnpj)){
-    $consulta = "INSERT INTO empresas SELECT * FROM requisicoes WHERE cnpj = $cnpj";
+    $consulta = "INSERT INTO empresas SELECT * FROM requisicoes WHERE (cnpj = $cnpj)";
     $resultado = mysqli_query($conn, $consulta);
     
     if($resultado = mysqli_query($conn, $consulta) === true){
@@ -18,4 +17,3 @@ if(!empty($cnpj)){
             $_SESSION['msg'] = "Cadastro não realizado, verifique os dados inseridos";
             header("location: ../view/homeAdm.php");
         }
-}

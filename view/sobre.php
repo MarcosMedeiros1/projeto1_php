@@ -21,12 +21,6 @@ if(($resultado) AND ($resultado->num_rows != 0)){
         echo "<b>E-mail: </b>" . $linha['email'] . "<br>";
         echo "<b>Telefone: </b>" . $linha['telefone'] . "<br>";
         echo "<b>Site: </b>" . $linha['site'] . "<br>";
-        echo "<b>Redes Sociais: </b>";
-        echo "<b><a href='".$linha['facebook']."'>Facebook</a></b>";
-        echo "<b> | </b>";
-        echo "<b><a href='". $linha['instagram']."'>Instagram</a></b>";
-        echo "<b> | </b>";
-        echo "<b><a href='". $linha['twitter']."'>Twitter</a></b><br>";
         echo "<b>Descrição: </b>" . $linha['descricao'] . "<br>";
         echo "<b>Servicos prestados: </b>" . $linha['servicos'] . "<br>";
         echo "<a href='verProdutos.php?cnpj=" . $linha['cnpj'] . "'>Visualizar Produtos desta empresa</a><br><hr>";

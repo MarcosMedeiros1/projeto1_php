@@ -74,6 +74,9 @@ if(isset($_SESSION['msg'])){
     <label>E-mail da empresa: </label>
     <input type="text" name="email" required><br><br>
 
+    <label>Site: </label>
+    <input type="text" name="site" required><br><br>
+
     <br><br><button>Salvar</button>
 
 <script>

@@ -14,10 +14,11 @@ $descricao = mysqli_real_escape_string($conn, trim($_POST['descricao']));
 $servicos = mysqli_real_escape_string($conn, trim($_POST['servicos']));
 $telefone = mysqli_real_escape_string($conn, trim($_POST['telefone']));
 $email = mysqli_real_escape_string($conn, trim($_POST['email']));
+$site = mysqli_real_escape_string($conn, trim($_POST['site']));
 $cpf = $_SESSION['cpf'];
 
 $consulta = "INSERT INTO requisicoes (cnpj, nome, cep, uf, cidade, bairro, rua, numero, descricao, servicos, telefone, email, cpf) VALUES" .
-"('$cnpj', '$nome', '$cep', '$uf', '$cidade', '$bairro', '$rua', '$numero', '$descricao', '$servicos', '$telefone', '$email', '$cpf')";
+"('$cnpj', '$nome', '$cep', '$uf', '$cidade', '$bairro', '$rua', '$numero', '$descricao', '$servicos', '$telefone', '$email', '$site', '$cpf')";
 
 if($resultado = mysqli_query($conn, $consulta) === true){
     $_SESSION['msg'] = "<br> <b>Requisição cadastrada com sucesso</b><br><br>";

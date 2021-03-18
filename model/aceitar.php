@@ -3,9 +3,8 @@ require_once("conexao.php");
 
 $cnpj = $_GET['cnpj'];
 
-    $consulta = "INSERT INTO empresas SELECT * FROM requisicoes WHERE (cnpj = $cnpj)";
-    $resultado = mysqli_query($conn, $consulta);
-    
+    $consulta = "INSERT INTO empresas SELECT * FROM requisicoes WHERE cnpj = '$cnpj'";
+       
     if($resultado = mysqli_query($conn, $consulta) === true){
         $consulta = "DELETE FROM requisicoes WHERE cnpj = '$cnpj'";
         $resultado = mysqli_query($conn, $consulta);

@@ -14,12 +14,9 @@ $numero = mysqli_real_escape_string($conn, trim($_POST['numero']));
 $descricao = mysqli_real_escape_string($conn, trim($_POST['descricao']));
 $servicos = mysqli_real_escape_string($conn, trim($_POST['servicos']));
 $site = mysqli_real_escape_string($conn, trim($_POST['site']));
-$facebook = mysqli_real_escape_string($conn, trim($_POST['facebook']));
-$instagram = mysqli_real_escape_string($conn, trim($_POST['instagram']));
-$twitter = mysqli_real_escape_string($conn, trim($_POST['twitter']));
 
 $consulta = "UPDATE empresas SET nome='$nome', cep='$cep', uf='$uf', cidade='$cidade', bairro='$bairro', rua='$rua', numero='$numero'," . 
-            "descricao='$descricao', servicos='$servicos', site='$site', facebook='$facebook', instagram='$instagram', twitter='$twitter' WHERE cnpj = '$cnpj'";
+            "descricao='$descricao', servicos='$servicos', site='$site' WHERE cnpj = '$cnpj'";
 
 $resultado = mysqli_query($conn, $consulta);
 

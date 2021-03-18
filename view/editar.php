@@ -52,15 +52,6 @@ $linha = mysqli_fetch_assoc($resultado);
     <label>Site da empresa: </label>
     <input type="text" name="site" value="<?php echo $linha['site'] ?>"><br><br>
 
-    <label>Facebook: </label>
-    <input type="text" name="facebook" value="<?php echo $linha['facebook'] ?>"><br><br>
-
-    <label>Instagram: </label>
-    <input type="text" name="instagram" value="<?php echo $linha['instagram'] ?>"><br><br>
-
-    <label>Twitter: </label>
-    <input type="text" name="twitter" value="<?php echo $linha['twitter'] ?>"><br><br>
-
     <br><br><input type="submit" name="enviar" value="Enviar">
 </body>
 </html>

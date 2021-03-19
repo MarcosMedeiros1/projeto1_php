@@ -11,7 +11,7 @@ $consulta = "INSERT INTO usuarios (cpf, nome, email, senha) VALUES" .
 "('$cpf', '$nome', '$email', '$senha')";
 
 if($resultado = mysqli_query($conn, $consulta) === true){
-    $_SESSION['msg'] = "<br> <b>Usuário cadastrado com sucesso, faça o login</b><br><br>";
+    $_SESSION['msg'] = "<br> <strong>Usuário cadastrado com sucesso, faça o login</strong><br><br>";
     header("location: ../view/login.php");
 }
     else{

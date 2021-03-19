@@ -9,7 +9,7 @@ $cnpj = $_GET['cnpj'];
         $consulta = "DELETE FROM requisicoes WHERE cnpj = '$cnpj'";
         $resultado = mysqli_query($conn, $consulta);
 
-        $_SESSION['msg'] = "<br><b>Empresa cadastrada com sucesso</b><br><br>";
+        $_SESSION['msg'] = "<br><strong>Empresa cadastrada com sucesso</strong><br><br>";
         header("location: ../view/homeAdm.php");
     }
         else{

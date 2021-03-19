@@ -18,8 +18,8 @@ $cnpj = $_GET['cnpj'];
 
     if(($resultado) AND ($resultado->num_rows != 0)){
         while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo "<b> Nome do produto: </b>" . $linha['nome'] . "<br>";
-            echo "<b> Descrição: </b>" . $linha['descricao'] . "<br><hr>";
+            echo "<strong> Nome do produto: </strong>" . $linha['nome'] . "<br>";
+            echo "<strong> Descrição: </strong>" . $linha['descricao'] . "<br><hr>";
             }
     }
     else{

@@ -21,11 +21,11 @@ $consulta = "INSERT INTO requisicoes (cnpj, nome, cep, uf, cidade, bairro, rua, 
 "('$cnpj', '$nome', '$cep', '$uf', '$cidade', '$bairro', '$rua', '$numero', '$descricao', '$servicos', '$telefone', '$email', '$site', '$cpf')";
 
 if($resultado = mysqli_query($conn, $consulta) === true){
-    $_SESSION['msg'] = "<br> <b>Requisição cadastrada com sucesso</b><br><br>";
+    $_SESSION['msg'] = "<br> <strong>Requisição cadastrada com sucesso</strong><br><br>";
     header("location: ../view/homeUsuario.php");
 }
     else{
-        $_SESSION['msg'] = "<br><b>Requisição não realizada, verifique os dados inseridos<b><br><br>";
+        $_SESSION['msg'] = "<br><strong>Requisição não realizada, verifique os dados inseridos<b><br><br>";
         header("location: ../view/reqCadastroEmp.php");
     }
 ?>

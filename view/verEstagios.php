@@ -14,9 +14,9 @@
 
     if(($resultado) AND ($resultado->num_rows != 0)){
         while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo "<b> Nome do estágio: </b>" . $linha['nome'] . "<br>";
-            echo "<b> Descrição: </b>" . $linha['descricao'] . "<br>";
-            echo "<b> Requisitos : </b>" . $linha['requisitos'] . "<br><br><hr>";
+            echo "<strong> Nome do estágio: </strong>" . $linha['nome'] . "<br>";
+            echo "<strong> Descrição: </strong>" . $linha['descricao'] . "<br>";
+            echo "<strong> Requisitos : </strong>" . $linha['requisitos'] . "<br><br><hr>";
             }
     }
     else{

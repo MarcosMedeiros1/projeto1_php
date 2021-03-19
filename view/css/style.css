@@ -1,0 +1,34 @@
+body{
+    background-color: aliceblue;
+}
+
+.link_login{
+    margin: auto;
+}
+
+.link_cad{
+    margin: auto;
+}
+
+.form{
+    width: 400px;
+    margin: auto;
+    padding-top: 15px;
+}
+
+.pesquisa{
+    box-shadow: 1px 1px 5px #ccc;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.resultado{
+    width: 350px;
+    margin: auto;
+    margin-top: 8px;
+    box-shadow: 1px 1px 5px #ccc;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+}

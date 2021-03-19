@@ -8,8 +8,8 @@ $resultado = mysqli_query($conn, $consulta);
 
 if(($resultado) AND ($resultado->num_rows != 0)){
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo "<br><br><b> Nome: </b>" . $linha['nome'] . "<br>";
-        echo "<b>Descrição: </b>" . $linha['descricao'] . "<br><br>";
+        echo "<strong> Nome: </strong>" . $linha['nome'] . "<br>";
+        echo "<strong>Descrição: </strong>" . $linha['descricao'] . "<br><br>";
 
         echo "<a href='view/sobre.php?cnpj=" . $linha['cnpj'] . "'>Ver mais informações sobre esta empresa</a><br><hr>";
     }

@@ -27,17 +27,17 @@ $consulta = "SELECT * FROM empresas WHERE cpf = '$cpf'";
 $resultado = mysqli_query($conn, $consulta);
 
 if(($resultado) AND ($resultado->num_rows != 0)){
-    echo "<br><b><p style=font-size:150%;>Suas empresas</p></b>";
+    echo "<br><strong><p style=font-size:150%;>Suas empresas</p></strong>";
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo "<b> CNPJ: </b>" . $linha['cnpj'] . "<br>";
-        echo "<b> Nome: </b>" . $linha['nome'] . "<br>";
-        echo "<b>CEP: </b>" . $linha['cep'] . "<br>";
-        echo "<b> UF: </b>" . $linha['uf'] . "<br>";
-        echo "<b>Cidade: </b>" . $linha['cidade'] . "<br>";
-        echo "<b>Bairro: </b>" . $linha['bairro'] . "<br>";
-        echo "<b>Rua: </b>" . $linha['rua'] . "<br>";
-        echo "<b>Descrição: </b>" . $linha['descricao'] . "<br>";
-        echo "<b>Servicos prestados: </b>" . $linha['servicos'] . "<br>";
+        echo "<strong> CNPJ: </strong>" . $linha['cnpj'] . "<br>";
+        echo "<strong> Nome: </strong>" . $linha['nome'] . "<br>";
+        echo "<strong>CEP: </strong>" . $linha['cep'] . "<br>";
+        echo "<strong> UF: </strong>" . $linha['uf'] . "<br>";
+        echo "<strong>Cidade: </strong>" . $linha['cidade'] . "<br>";
+        echo "<strong>Bairro: </strong>" . $linha['bairro'] . "<br>";
+        echo "<strong>Rua: </strong>" . $linha['rua'] . "<br>";
+        echo "<strong>Descrição: </strong>" . $linha['descricao'] . "<br>";
+        echo "<strong>Servicos prestados: </strong>" . $linha['servicos'] . "<br>";
 
         echo "<a href='novoProduto.php?cnpj=" . $linha['cnpj'] . "'><br>Adicionar Produtos</a><br><br>";
 

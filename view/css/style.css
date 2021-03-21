@@ -1,34 +1,38 @@
 body{
-    background-color: aliceblue;
+    background-color: white;
 }
 
-.link_login{
-    margin: auto;
+.h1{
+    font-family: "Helvetica";
 }
 
-.link_cad{
+.login{
+    background-color: lightblue;
+    width: auto;
+    padding: 8px;
     margin: auto;
+    border: none;
+    cursor: pointer;
 }
 
 .form{
-    width: 400px;
-    margin: auto;
-    padding-top: 15px;
-}
-
-.pesquisa{
     box-shadow: 1px 1px 5px #ccc;
     background-color: whitesmoke;
+    font-family: Helvetica;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.form > label{
     padding: 20px;
     border-radius: 5px;
 }
 
-.resultado{
-    width: 350px;
-    margin: auto;
-    margin-top: 8px;
-    box-shadow: 1px 1px 5px #ccc;
-    background-color: whitesmoke;
-    padding: 10px;
-    border-radius: 5px;
+.form > input{
+    border-radius: 4px;
+    outline: 0;
+    width: auto;
 }
+

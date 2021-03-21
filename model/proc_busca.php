@@ -13,6 +13,7 @@ if(($resultado) AND ($resultado->num_rows != 0)){
 
         echo "<a href='view/sobre.php?cnpj=" . $linha['cnpj'] . "'>Ver mais informações sobre esta empresa</a><br><hr>";
     }
-}else{
-    echo "Nenhum registro encontrado";
-}
+
+    }else{
+        echo "Nenhum registro encontrado";
+    }

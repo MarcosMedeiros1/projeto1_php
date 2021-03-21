@@ -17,25 +17,20 @@ require_once("model/conexao.php");
 
 </head>
 <body>
-<h1>Página Inicial</h1><br>
+<h1 class="h1">Página Inicial</h1><br>
 
-    <div class="link_login">
-        <a href="view/login.php" id="login">Login</a><br>
-    </div>
-
-    <div class="link_cad">
-        <a href="view/cadastroUsuario.php" id="cadastrar">Cadastrar-se</a><br><br>
-    </div>
+        <a href="view/login.php" id="login">
+            <button class="login">Página de login</button>
+        </a>
+    
 
 <form method="POST" class="form">
-        <div class="pesquisa">
-            <label for="pesquisa"><strong> Pesquisar: </strong></label>
+            <label>Pesquisar empresas: </label>
             <input type="text" name="busca" id="busca">
-        </div>
-</form>
 
-    
-    <ul class='resultado'></ul>
+            <ul class="resultado"></ul>    
+    </form>
+
 
     <script type="text/javascript" src="model/pesquisa.js"></script>
 

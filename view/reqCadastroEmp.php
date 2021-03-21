@@ -9,20 +9,7 @@ require_once("../model/conexao.php");
     <meta charset="UTF-8">
     <title>Cadastro</title>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/jquery.validate.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#formCadastro").validate({
-                rules:{
-                    email:{
-                        email: true
-                    }
-                }
-            })
-        })
-    </script>
+    <script>src= "https://code.jquery.com/jquery-3.6.0.min.js"</script>
     
 </head>
 <body>
@@ -80,11 +67,11 @@ if(isset($_SESSION['msg'])){
     <br><br><button>Salvar</button>
 
 <script>
-        ("#cep").blur(function(){
+        ( "#cep" ).blur(function(){
             var numCep = $("#cep").val();
             $.ajax({
                 method: "GET",
-                url: "http://viacep.com.br/ws/"+numCep+"/json"
+                url: "https://viacep.com.br/ws/"+numCep+"/json/"
             })
             .done(function(retorno) {
                 $("#rua").val(retorno.logradouro);

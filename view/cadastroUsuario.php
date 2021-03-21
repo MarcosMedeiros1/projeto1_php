@@ -8,24 +8,7 @@ require_once("../model/conexao.php");
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Usuário</title>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/jquery.validate.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#formCadastro").validate({
-                rules:{
-                    email:{
-                        email: true
-                    },
-                    senha:{
-                        password: true
-                    }
-                }
-            })
-        })
-    </script>
+    
 </head>
 <body>
 

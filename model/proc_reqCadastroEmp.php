@@ -2,25 +2,25 @@
 session_start();
 require_once("conexao.php");
 
-$cnpj = mysqli_real_escape_string($conn, trim($_POST['cnpj']));
-$nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
-$cep = mysqli_real_escape_string($conn, trim($_POST['cep']));
-$uf = mysqli_real_escape_string($conn, trim($_POST['uf']));
-$cidade = mysqli_real_escape_string($conn, trim($_POST['cidade']));
-$bairro = mysqli_real_escape_string($conn, trim($_POST['bairro']));
-$rua = mysqli_real_escape_string($conn, trim($_POST['rua']));
-$numero = mysqli_real_escape_string($conn, trim($_POST['numero']));
-$descricao = mysqli_real_escape_string($conn, trim($_POST['descricao']));
-$servicos = mysqli_real_escape_string($conn, trim($_POST['servicos']));
-$telefone = mysqli_real_escape_string($conn, trim($_POST['telefone']));
-$email = mysqli_real_escape_string($conn, trim($_POST['email']));
-$site = mysqli_real_escape_string($conn, trim($_POST['site']));
-$cpf = $_SESSION['cpf'];
+$sql = $pdo->prepare("INSERT INTO requisicoes (cnpj, nome, cep, uf, cidade, bairro, rua, numero, descricao, servicos, telefone, email, site, cpf) VALUES" .
+"(:cnpj, :nome, :cep, :uf, :cidade, :bairro, :rua, :numero, :descricao, :servicos, :telefone, :email, :site, :cpf)");
 
-$consulta = "INSERT INTO requisicoes (cnpj, nome, cep, uf, cidade, bairro, rua, numero, descricao, servicos, telefone, email, cpf) VALUES" .
-"('$cnpj', '$nome', '$cep', '$uf', '$cidade', '$bairro', '$rua', '$numero', '$descricao', '$servicos', '$telefone', '$email', '$site', '$cpf')";
+    $sql->bindValue(":cnpj", $_POST['cnpj']);
+    $sql->bindValue(':nome', $_POST['nome']);
+    $sql->bindValue(':cep', $_POST['cep']);
+    $sql->bindValue(':uf', $_POST['uf']);
+    $sql->bindValue(':cidade', $_POST['cidade']);
+    $sql->bindValue(':bairro', $_POST['bairro']);
+    $sql->bindValue(':rua', $_POST['rua']);
+    $sql->bindValue(':numero', $_POST['numero']);
+    $sql->bindValue(':descricao', $_POST['descricao']);
+    $sql->bindValue(':servicos', $_POST['servicos']);
+    $sql->bindValue(':telefone', $_POST['telefone']);
+    $sql->bindValue(':email', $_POST['email']);
+    $sql->bindValue(':site', $_POST['site']);
+    $sql->bindValue(':cpf', $_SESSION['cpf']);
 
-if($resultado = mysqli_query($conn, $consulta) === true){
+if($sql->execute()){
     $_SESSION['msg'] = "<br> <strong>Requisição cadastrada com sucesso</strong><br><br>";
     header("location: ../view/homeUsuario.php");
 }

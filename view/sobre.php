@@ -12,18 +12,17 @@ $cnpj = $_GET['cnpj'];
 </head>
 <body>
 <?php
-$consulta = "SELECT * FROM empresas WHERE cnpj = '$cnpj'";
-$resultado = mysqli_query($conn, $consulta);
+$sql = $pdo->prepare("SELECT * FROM empresas WHERE cnpj = '$cnpj'");
 
-if(($resultado) AND ($resultado->num_rows != 0)){
-    while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo "<p style=font-size:150%;>" . $linha['nome'] . "</p>";
-        echo "<strong>E-mail: </strong>" . $linha['email'] . "<br>";
-        echo "<strong>Telefone: </strong>" . $linha['telefone'] . "<br>";
-        echo "<strong>Site: </strong>" . $linha['site'] . "<br>";
-        echo "<strong>Descrição: </strong>" . $linha['descricao'] . "<br>";
-        echo "<strong>Servicos prestados: </strong>" . $linha['servicos'] . "<br>";
-        echo "<a href='verProdutos.php?cnpj=" . $linha['cnpj'] . "'>Visualizar Produtos desta empresa</a><br><hr>";
+if(($sql->execute()) && ($sql->rowCount() != 0)){
+    while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+        echo "<p style=font-size:150%;>" . $row['nome'] . "</p>";
+        echo "<strong>E-mail: </strong>" . $row['email'] . "<br>";
+        echo "<strong>Telefone: </strong>" . $row['telefone'] . "<br>";
+        echo "<strong>Site: </strong>" . $row['site'] . "<br>";
+        echo "<strong>Descrição: </strong>" . $row['descricao'] . "<br>";
+        echo "<strong>Servicos prestados: </strong>" . $row['servicos'] . "<br>";
+        echo "<a href='verProdutos.php?cnpj=" . $row['cnpj'] . "'>Visualizar Produtos desta empresa</a><br><hr>";
     }
 }
 ?>

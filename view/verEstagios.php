@@ -9,14 +9,13 @@
     header("location: login.php");
     }
 
-    $consulta = "SELECT * FROM estagios";
-    $resultado = mysqli_query($conn, $consulta);
+    $sql = $pdo->prepare("SELECT * FROM estagios");
 
-    if(($resultado) AND ($resultado->num_rows != 0)){
-        while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo "<strong> Nome do estágio: </strong>" . $linha['nome'] . "<br>";
-            echo "<strong> Descrição: </strong>" . $linha['descricao'] . "<br>";
-            echo "<strong> Requisitos : </strong>" . $linha['requisitos'] . "<br><br><hr>";
+    if(($sql->execute()) && ($sql->rowCount() != 0)){
+        while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+            echo "<strong> Nome do estágio: </strong>" . $row['nome'] . "<br>";
+            echo "<strong> Descrição: </strong>" . $row['descricao'] . "<br>";
+            echo "<strong> Requisitos : </strong>" . $row['requisitos'] . "<br><br><hr>";
             }
     }
     else{

@@ -2,14 +2,14 @@
 session_start();
 require_once("conexao.php");
 
-$cnpj = mysqli_real_escape_string($conn, trim($_POST['cnpj']));
-$nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
-$descricao = mysqli_real_escape_string($conn, trim($_POST['descricao']));
-$requisitos = mysqli_real_escape_string($conn, trim($_POST['requisitos']));
+$sql = $pdo->prepare("INSERT INTO estagios (nome, descricao, requisitos, cnpj_responsavel) VALUES (:nome, :descricao, :requisitos, :cnpj)");
 
-    $consulta = "INSERT INTO estagios (nome, descricao, requisitos, cnpj_responsavel) VALUES ('$nome', '$descricao', '$requisitos', '$cnpj')";
+    $sql->bindValue(":nome", $_POST['nome']);
+    $sql->bindValue(":descricao", $_POST['descricao']);
+    $sql->bindValue(":requisitos", $_POST['requisitos']);
+    $sql->bindValue(":cnpj", $_POST['cnpj']);
     
-    if($resultado = mysqli_query($conn, $consulta) === true){
+    if($sql->execute()){
         $_SESSION['msg'] = "<br> <strong>Estágio cadastrado com sucesso</strong><br><br>";
         header("location: ../view/homeUsuario.php");
     }

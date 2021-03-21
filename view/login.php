@@ -7,30 +7,15 @@ require_once("../model/conexao.php");
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/jquery.validate.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#formLogin").validate({
-                rules:{
-                    email:{
-                        email: true
-                    },
-                    senha:{
-                        password: true
-                    }
-                }
-            })
-        })
-    </script>
     
 </head>
 <body>
     <a href="../index.php">Pesquisar empresas</a>
-    <h1>Login</h1>
+    <h1 class="titulo01">Login</h1>
     
     <h>Não tem uma conta? </h>
     <a href="cadastroUsuario.php">Cadastre-se</a><br><br>

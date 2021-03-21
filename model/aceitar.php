@@ -1,14 +1,15 @@
 <?php
 require_once("conexao.php"); 
 
-$cnpj = $_GET['cnpj'];
+    $sql = $pdo->prepare("INSERT INTO empresas SELECT * FROM requisicoes WHERE cnpj = :cnpj");
+    
+    $sql->bindValue(":cnpj", $_GET['cnpj']);
 
-    $consulta = "INSERT INTO empresas SELECT * FROM requisicoes WHERE cnpj = '$cnpj'";
-       
-    if($resultado = mysqli_query($conn, $consulta) === true){
-        $consulta = "DELETE FROM requisicoes WHERE cnpj = '$cnpj'";
-        $resultado = mysqli_query($conn, $consulta);
-
+    if($sql->execute()){
+        $sql = $pdo->prepare("DELETE FROM requisicoes WHERE cnpj = :cnpj");
+        $sql->bindValue(":cnpj", $_GET['cnpj']);
+        $sql->execute();
+        
         $_SESSION['msg'] = "<br><strong>Empresa cadastrada com sucesso</strong><br><br>";
         header("location: ../view/homeAdm.php");
     }

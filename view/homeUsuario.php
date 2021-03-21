@@ -23,27 +23,26 @@ if(isset($_SESSION['msg'])){
     unset($_SESSION['msg']);
 }
 
-$consulta = "SELECT * FROM empresas WHERE cpf = '$cpf'";
-$resultado = mysqli_query($conn, $consulta);
+$sql = $pdo->prepare("SELECT * FROM empresas WHERE cpf = '$cpf'");
 
-if(($resultado) AND ($resultado->num_rows != 0)){
+if(($sql->execute()) && ($sql->rowCount() != 0)){
     echo "<br><strong><p style=font-size:150%;>Suas empresas</p></strong>";
-    while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo "<strong> CNPJ: </strong>" . $linha['cnpj'] . "<br>";
-        echo "<strong> Nome: </strong>" . $linha['nome'] . "<br>";
-        echo "<strong>CEP: </strong>" . $linha['cep'] . "<br>";
-        echo "<strong> UF: </strong>" . $linha['uf'] . "<br>";
-        echo "<strong>Cidade: </strong>" . $linha['cidade'] . "<br>";
-        echo "<strong>Bairro: </strong>" . $linha['bairro'] . "<br>";
-        echo "<strong>Rua: </strong>" . $linha['rua'] . "<br>";
-        echo "<strong>Descrição: </strong>" . $linha['descricao'] . "<br>";
-        echo "<strong>Servicos prestados: </strong>" . $linha['servicos'] . "<br>";
+    while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+        echo "<strong> CNPJ: </strong>" . $row['cnpj'] . "<br>";
+        echo "<strong> Nome: </strong>" . $row['nome'] . "<br>";
+        echo "<strong>CEP: </strong>" . $row['cep'] . "<br>";
+        echo "<strong> UF: </strong>" . $row['uf'] . "<br>";
+        echo "<strong>Cidade: </strong>" . $row['cidade'] . "<br>";
+        echo "<strong>Bairro: </strong>" . $row['bairro'] . "<br>";
+        echo "<strong>Rua: </strong>" . $row['rua'] . "<br>";
+        echo "<strong>Descrição: </strong>" . $row['descricao'] . "<br>";
+        echo "<strong>Servicos prestados: </strong>" . $row['servicos'] . "<br>";
 
-        echo "<a href='novoProduto.php?cnpj=" . $linha['cnpj'] . "'><br>Adicionar Produtos</a><br><br>";
+        echo "<a href='novoProduto.php?cnpj=" . $row['cnpj'] . "'><br>Adicionar Produtos</a><br><br>";
 
-        echo "<a href='editar.php?cnpj=" . $linha['cnpj'] . "'>Editar informações da empresa</a><br><br>";
+        echo "<a href='editar.php?cnpj=" . $row['cnpj'] . "'>Editar informações da empresa</a><br><br>";
 
-        echo "<a href='novoEstagio.php?cnpj=" . $linha['cnpj'] . "'>Adicionar demanda de estágio</a><hr>";
+        echo "<a href='novoEstagio.php?cnpj=" . $row['cnpj'] . "'>Adicionar demanda de estágio</a><hr>";
     }
 }
 ?>

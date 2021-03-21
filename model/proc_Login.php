@@ -8,22 +8,22 @@ if (isset($_POST['login'])){
     $senha = md5($senha);
     $tipo = $_POST['tipo'];
 
-    $consulta = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha' AND tipo='$tipo'";
-    $resultado = mysqli_query($conn, $consulta);
-    $linha = mysqli_fetch_assoc($resultado);
+    $sql = $pdo->query("SELECT * FROM usuarios WHERE email='$email' AND senha='$senha' AND tipo='$tipo'");
+    $sql->execute();
+    $row = $sql->fetch(PDO::FETCH_ASSOC);
 
-    $_SESSION['email'] = $linha['email'];
-    $_SESSION['tipo'] = $linha['tipo'];
-    $_SESSION['nome'] = $linha['nome'];
-    $_SESSION['cpf'] = $linha['cpf'];
+    $_SESSION['email'] = $row['email'];
+    $_SESSION['tipo'] = $row['tipo'];
+    $_SESSION['nome'] = $row['nome'];
+    $_SESSION['cpf'] = $row['cpf'];
 
-    if($resultado->num_rows == 1 && $_SESSION['tipo']=="0"){
+    if($sql->rowCount() == 1 && $_SESSION['tipo']=="0"){
         header("location: ../view/homeUsuario.php");
     }
-    elseif ($resultado->num_rows == 1 && $_SESSION['tipo']=="1") {
+    elseif ($sql->rowCount() == 1 && $_SESSION['tipo']=="1") {
         header("location: ../view/homeAdm.php");
     }
-    elseif ($resultado->num_rows == 1 && $_SESSION['tipo']=="2") {
+    elseif ($sql->rowCount() == 1 && $_SESSION['tipo']=="2") {
         header("location: ../view/homeInstituto.php");
     }
     else {

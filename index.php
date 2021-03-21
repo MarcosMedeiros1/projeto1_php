@@ -13,11 +13,11 @@ require_once("model/conexao.php");
 
         <title>Página inicial</title>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
-<h1 class="h1">Página Inicial</h1><br>
+    <h1 class="h1">Página Inicial</h1><br>
 
         <a href="view/login.php" id="login">
             <button class="login">Página de login</button>

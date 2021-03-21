@@ -3,7 +3,6 @@ session_start();
 require_once("../model/conexao.php");
 
 $cnpj = $_GET['cnpj'];
-
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +12,12 @@ $cnpj = $_GET['cnpj'];
     <h2>Produtos cadastrados</h2><br>
 
 <?php
-    $consulta = "SELECT * FROM produtos WHERE cnpj_responsavel = '$cnpj'";
-    $resultado = mysqli_query($conn, $consulta);
+    $sql = $pdo->prepare("SELECT * FROM produtos WHERE cnpj_responsavel = '$cnpj'");
 
-    if(($resultado) AND ($resultado->num_rows != 0)){
-        while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo "<strong> Nome do produto: </strong>" . $linha['nome'] . "<br>";
-            echo "<strong> Descrição: </strong>" . $linha['descricao'] . "<br><hr>";
+    if(($sql->execute()) && ($sql->rowCount() != 0)){
+        while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+            echo "<strong> Nome do produto: </strong>" . $row['nome'] . "<br>";
+            echo "<strong> Descrição: </strong>" . $row['descricao'] . "<br><hr>";
             }
     }
     else{

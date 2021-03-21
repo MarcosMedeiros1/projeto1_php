@@ -1,9 +1,8 @@
 <?php
-//Conexão com o BD
-define('HOST', '127.0.0.1');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('DB', 'db_empresas');
+$localhost = "localhost";
+$user = "root";
+$pass = "";
+$db = "db_empresas";
 
-
-$conn = mysqli_connect(HOST, USUARIO, SENHA, DB);
+$pdo = new PDO("mysql:dbname=".$db."; host=".$localhost, $user, $pass);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

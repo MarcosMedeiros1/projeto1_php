@@ -1,11 +1,11 @@
 <?php
 require_once("conexao.php");
 
-$cnpj = $_GET['cnpj'];
+    $sql = $pdo->prepare("DELETE FROM requisicoes WHERE cnpj = :cnpj");
 
-    $consulta = "DELETE FROM requisicoes WHERE cnpj = '$cnpj'";
-    
-    if($resultado = mysqli_query($conn, $consulta) === true){
+    $sql->bindValue(":cnpj", $_GET['cnpj']);
+
+    if($sql->execute()){
     $_SESSION['msg'] = "<br><strong>Requisição cancelada com sucesso</strong><br><br>";
     header("location: ../view/homeAdm.php");
     }

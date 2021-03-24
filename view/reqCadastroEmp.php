@@ -9,7 +9,7 @@ require_once("../model/conexao.php");
     <meta charset="UTF-8">
     <title>Cadastro</title>
 
-    <script>src= "https://code.jquery.com/jquery-3.6.0.min.js"</script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 </head>
 <body>
@@ -64,23 +64,10 @@ if(isset($_SESSION['msg'])){
     <label>Site: </label>
     <input type="text" name="site" required><br><br>
 
-    <br><br><button>Salvar</button>
+    <br><br><button type="submit">Salvar</button>
+</form>
 
-<script>
-        ( "#cep" ).blur(function(){
-            var numCep = $("#cep").val();
-            $.ajax({
-                method: "GET",
-                url: "https://viacep.com.br/ws/"+numCep+"/json/"
-            })
-            .done(function(retorno) {
-                $("#rua").val(retorno.logradouro);
-                $("#bairro").val(retorno.bairro);
-                $("#cidade").val(retorno.localidade);
-                $("#uf").val(retorno.uf);
-            })
-        })
-    </script>
-</form>    
+<script src="../model/viaCep.js"></script>
+
 </body>
 </html>
